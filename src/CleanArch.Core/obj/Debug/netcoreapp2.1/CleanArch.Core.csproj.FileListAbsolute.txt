@@ -1,0 +1,9 @@
+D:\CoreProjects\CleanArch\src\CleanArch.Core\bin\Debug\netcoreapp2.1\CleanArch.Core.deps.json
+D:\CoreProjects\CleanArch\src\CleanArch.Core\bin\Debug\netcoreapp2.1\CleanArch.Core.dll
+D:\CoreProjects\CleanArch\src\CleanArch.Core\bin\Debug\netcoreapp2.1\CleanArch.Core.pdb
+D:\CoreProjects\CleanArch\src\CleanArch.Core\obj\Debug\netcoreapp2.1\CleanArch.Core.csprojAssemblyReference.cache
+D:\CoreProjects\CleanArch\src\CleanArch.Core\obj\Debug\netcoreapp2.1\CleanArch.Core.csproj.CoreCompileInputs.cache
+D:\CoreProjects\CleanArch\src\CleanArch.Core\obj\Debug\netcoreapp2.1\CleanArch.Core.AssemblyInfoInputs.cache
+D:\CoreProjects\CleanArch\src\CleanArch.Core\obj\Debug\netcoreapp2.1\CleanArch.Core.AssemblyInfo.cs
+D:\CoreProjects\CleanArch\src\CleanArch.Core\obj\Debug\netcoreapp2.1\CleanArch.Core.dll
+D:\CoreProjects\CleanArch\src\CleanArch.Core\obj\Debug\netcoreapp2.1\CleanArch.Core.pdb

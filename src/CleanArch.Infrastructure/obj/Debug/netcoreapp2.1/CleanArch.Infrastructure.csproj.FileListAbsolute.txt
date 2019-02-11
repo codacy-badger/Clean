@@ -1,0 +1,13 @@
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\bin\Debug\netcoreapp2.1\CleanArch.Infrastructure.dll.config
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\bin\Debug\netcoreapp2.1\CleanArch.Infrastructure.deps.json
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\bin\Debug\netcoreapp2.1\CleanArch.Infrastructure.dll
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\bin\Debug\netcoreapp2.1\CleanArch.Infrastructure.pdb
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\bin\Debug\netcoreapp2.1\CleanArch.Core.dll
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\bin\Debug\netcoreapp2.1\CleanArch.Core.pdb
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\obj\Debug\netcoreapp2.1\CleanArch.Infrastructure.csprojAssemblyReference.cache
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\obj\Debug\netcoreapp2.1\CleanArch.Infrastructure.csproj.CoreCompileInputs.cache
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\obj\Debug\netcoreapp2.1\CleanArch.Infrastructure.AssemblyInfoInputs.cache
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\obj\Debug\netcoreapp2.1\CleanArch.Infrastructure.AssemblyInfo.cs
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\obj\Debug\netcoreapp2.1\CleanArch.Infrastructure.csproj.CopyComplete
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\obj\Debug\netcoreapp2.1\CleanArch.Infrastructure.dll
+D:\CoreProjects\CleanArch\src\CleanArch.Infrastructure\obj\Debug\netcoreapp2.1\CleanArch.Infrastructure.pdb
