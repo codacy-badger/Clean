@@ -22,7 +22,7 @@ namespace CleanArch.Infrastructure.DataRepository.UserManagement
         {
             configuration = _configuration;
         }
-        
+      
         public UserEntity GetUserDetails(string UserId, int mode)
         {
             int? Rownumber = 0;
@@ -114,8 +114,8 @@ namespace CleanArch.Infrastructure.DataRepository.UserManagement
                     mCommand.CommandType = CommandType.Text;
                     try
                     {
-                        mCommand.CommandText = " SELECT CURRENCYNAME,CURRENCYCODE FROM FOCIS.CURRENCIES WHERE CURRENCYID IN (SELECT BASECURRENCYID FROM FOCIS.SMDM_COUNTRY WHERE countryid=" + entity.COUNTRYID + ")";
-                        DataTable dt = ReturnDatatable(DBConnectionMode.FOCiS, mCommand.CommandText, null);
+                        mCommand.CommandText = "SELECT CURRENCYNAME,CURRENCYCODE FROM FOCIS.CURRENCIES WHERE CURRENCYID IN (SELECT BASECURRENCYID FROM FOCIS.SMDM_COUNTRY WHERE countryid=" + entity.COUNTRYID + ")";
+                        DataTable dt = ReturnDatatable(GetConnectionString(configuration, DBConnectionMode.FOCiS), mCommand.CommandText, null);
                         if (dt.Rows.Count > 0)
                         {
                             PREFERREDCURRENCY = dt.Rows[0]["CURRENCYNAME"].ToString();
@@ -134,7 +134,7 @@ namespace CleanArch.Infrastructure.DataRepository.UserManagement
                     }
                 }
             }
-            using (mConnection = new OracleConnection(SSPConnectionString))
+            using (mConnection = new OracleConnection(GetConnectionString(configuration, DBConnectionMode.SSP)))
             {
                 if (mConnection.State == ConnectionState.Closed) mConnection.Open();
                 mOracleTransaction = mConnection.BeginTransaction();
@@ -219,7 +219,7 @@ namespace CleanArch.Infrastructure.DataRepository.UserManagement
                 }
             }
             //--------------------Sales Force---------------
-            using (mConnection = new OracleConnection(FOCISConnectionString))
+            using (mConnection = new OracleConnection(GetConnectionString(configuration, DBConnectionMode.FOCiS)))
             {
                 if (mConnection.State == ConnectionState.Closed) mConnection.Open();
                 mOracleTransaction = mConnection.BeginTransaction();

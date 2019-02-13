@@ -31,25 +31,27 @@ namespace CleanArch.Core.Service.UserManagement
         public dynamic IsUserExist(SignupModel model)
         {
             UserEntity mDBEntity = _userRepository.GetUserDetails(model.Email, 0);
-            if (!string.IsNullOrEmpty(mDBEntity.USERID))
-            {
-                return ResponseMessage.BaseResponse("User Already Exist!.", HttpStatusCode.NotAcceptable);
-            }
-
-            return  SaveLogic(model);
+            //if (!string.IsNullOrEmpty(mDBEntity.USERID))
+            //{
+            //    return ResponseMessage.BaseResponse("User Already Exist!.", HttpStatusCode.NotAcceptable);
+            //}
+            //else {
+            //}
+            // return  SaveLogic(model);
+            return mDBEntity;
         }
         public dynamic SaveLogic(SignupModel model) {
 
-            TokenDetailsEntity token = _userRepository.GenerateToken("USER_ACTIVATION_TOKEN_EXPIRY");
-            //UserEntity obj = _mapper.Map<UserEntity>(model);
-            //obj.TOKEN = token.Token;
-            //obj.TOKENEXPIRY = token.TokenExpiry;
-            UserEntity mDBEntity = Map_Request_Model(model, token);
-            _mail.Sendmail(mDBEntity, token.Token);
-
-            return SalesForce(mDBEntity);// Mails(mDBEntity, token.Token);
+            TokenDetailsEntity tokenEntity = _userRepository.GenerateToken("USER_ACTIVATION_TOKEN_EXPIRY");           
+            UserEntity mDBEntity = Map_Request_Model(model, tokenEntity);
+            SendMail(mDBEntity, tokenEntity);            
+            return mDBEntity;
         }
-        private dynamic SalesForce(UserEntity mDBEntity)
+        public dynamic SendMail(UserEntity mDBEntity, TokenDetailsEntity tokenEntity)
+        {
+            return _mail.Sendmail(mDBEntity, tokenEntity.Token);
+        }
+        public dynamic SalesForce(UserEntity mDBEntity)
         {
             //SafeRun<bool>(() =>
             //{

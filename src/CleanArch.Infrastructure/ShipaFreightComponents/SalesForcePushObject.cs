@@ -27,7 +27,7 @@ namespace CleanArch.Infrastructure.ShipaFreightComponents
                 objHeaderDetails = Task.Factory.StartNew(() => obj.HeaderDetailsMapping(TransactionType)).Result;
                 objUserDetails = Task.Factory.StartNew(() => SalesForceDataIntegration.UserSignUpDetailsMapping(mDBEntity)).Result;
                 objUserDetails.Result.RegisteredDate = System.DateTime.Now;
-                salesForceEntity.HeaderSection = objHeaderDetails.Result;
+               //pavan salesForceEntity.HeaderSection = objHeaderDetails.Result;
                 objDetails.UserDetails = objUserDetails.Result;
                 objBody.Details = objDetails;
                 salesForceEntity.Body = objBody;

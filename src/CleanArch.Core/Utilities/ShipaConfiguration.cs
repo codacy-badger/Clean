@@ -1,11 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArch.Core.Utilities
 {
-    public class ShipaConfiguration
+    public static class ShipaConfiguration
     {
+               
+        //IConfiguration _CONFIGURATON;
+        //public ShipaConfiguration(IConfiguration configuration)
+        //{
+        //    _CONFIGURATON = configuration;
+        //}
+
+
+        //public  class InternalUrls
+        //{
+        //    public   string OneSignalKey
+        //    {
+        //        get
+        //        {
+        //            return obdsdgj.appley("OneSignalKey");
+        //            //ConfigurationManager.AppSettings["OneSignalKey"];
+        //        }
+        //    }
+        //    public static string OneSignalId { get { return ConfigurationManager.AppSettings["OneSignalId"]; } }
+        //}
         #region Accessing Keys from config file 
         internal static string GetActiveCampaignApiKey()
         {
@@ -155,9 +179,9 @@ namespace CleanArch.Core.Utilities
             return GetValueforKey("IBMMQCheck");
         }
         #endregion
-        private static string GetValueforKey(string Key)
+        public static string GetValueforKey(string Key)
         {
-            return "Off";//pavanConfigurationManager.AppSettings[Key].ToString();
+            return "Off";//pavanConfigurationManager.AppSettings[Key].ToString();        
 
         }
 

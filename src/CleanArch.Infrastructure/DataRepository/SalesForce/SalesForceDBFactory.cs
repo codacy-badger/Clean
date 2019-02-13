@@ -12,7 +12,6 @@ namespace CleanArch.Infrastructure.DataRepository.SalesForce
         IConfiguration configuration;
         public SalesForceDBFactory(IConfiguration _configuration)
         {
-
             configuration = _configuration;
         }
 

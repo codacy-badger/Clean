@@ -25,26 +25,22 @@ namespace CleanArch.Infrastructure.Core
         protected readonly string FOCISConnectionString = string.Empty;
         protected readonly string SSPConnectionString = string.Empty;
 
-        //IConfiguration configuration;
-        //public DBFactoryCore(IConfiguration _configuration)
-        //{
-        //    configuration = _configuration;
-            
-        //}       
-        public DBFactoryCore()
+        IConfiguration configuration;
+        public DBFactoryCore(IConfiguration _configuration)
         {
-           
-            //var dfd=this.GetConnection();
-            //var SSPString = this.GetConnection();
-            //SSPConnectionString =Convert.ToString(SSPString);
-            //FOCISConnectionString = "";// System.Configuration.ConfigurationManager.ConnectionStrings["FOCiS"].ConnectionString;
+            configuration = _configuration;
+
+        }
+      
+        public DBFactoryCore()
+        {          
+          
         }
         public string GetConnectionString(IConfiguration configuration, DBConnectionMode dbConnectionMode)
         {
-            string FOCISConnectionString = configuration.GetSection("ConnectionStrings").GetSection("EmployeeConnection").Value;
-            string SSPConnectionString = configuration.GetSection("ConnectionStrings").GetSection("EmployeeConnection").Value;
-            var connectionString = dbConnectionMode == DBConnectionMode.FOCiS ? FOCISConnectionString : SSPConnectionString;
-            //configuration.GetSection("ConnectionStrings").GetSection("EmployeeConnection").Value;
+            string SSPConnectionString = configuration.GetSection("ConnectionStrings").GetSection("FOCiSSSP").Value;
+            string FOCISConnectionString = configuration.GetSection("ConnectionStrings").GetSection("FOCiS").Value;
+            var connectionString = dbConnectionMode == DBConnectionMode.FOCiS ? FOCISConnectionString : SSPConnectionString;           
             return connectionString;
         }
         private void Read(string connectionString, string commandText, IDbDataParameter[] parameters, CommandType commandType, Action<IDataReader> act)
@@ -216,18 +212,19 @@ namespace CleanArch.Infrastructure.Core
             return obj;
         }
 
-        internal DataTable ReturnDatatable(DBConnectionMode dbConnectionMode, string commandText, IDbDataParameter[] parameters)
+        internal DataTable ReturnDatatable(string connectionString, string commandText, IDbDataParameter[] parameters)
         {
-            DataTable dtData = FillDatatableReturn(dbConnectionMode, commandText, parameters);
+            
+            DataTable dtData = FillDatatableReturn(connectionString, commandText, parameters);
             return dtData;
         }
 
-        private DataTable FillDatatableReturn(DBConnectionMode dbConnectionMode, string commandText, IDbDataParameter[] parameters)
+        private DataTable FillDatatableReturn(string connectionString, string commandText, IDbDataParameter[] parameters)
         {
             DataTable dt = new DataTable();
 
             using (OracleConnection mConnection = new OracleConnection(
-                    (dbConnectionMode == DBConnectionMode.FOCiS ? FOCISConnectionString : SSPConnectionString)
+                    (connectionString)
                 ))
             {
                 if (mConnection.State == ConnectionState.Closed) mConnection.Open();
